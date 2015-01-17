@@ -34,8 +34,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * The jpa annotation can be used to mark tests for which the in-memory database
+ * should be started. The annnotation can be used on the class or on the method
+ * level, to apply the jpa settings for all tests of a class or only for one
+ * specific test.
  *
- * @author Sebastian Sdorra 
+ * @author Sebastian Sdorra
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.METHOD, ElementType.TYPE })
@@ -43,9 +47,9 @@ public @interface JPA
 {
 
   /**
-   * JPA unit name.
+   * Persistence unit name.
    *
-   * @return jpa unit name
+   * @return persistence unit name
    */
   String value();
 

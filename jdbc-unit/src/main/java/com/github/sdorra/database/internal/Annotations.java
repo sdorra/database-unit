@@ -35,6 +35,7 @@ import org.junit.runners.model.FrameworkMethod;
 import java.lang.annotation.Annotation;
 
 /**
+ * Util class to handle annotations.
  *
  * @author Sebastian Sdorra 
  */
@@ -50,15 +51,16 @@ public final class Annotations
   //~--- methods --------------------------------------------------------------
 
   /**
-   * Method description
+   * Searches a annotation. The method will first look at the method and after 
+   * that it will check the class of the target object.
    *
    *
-   * @param method
-   * @param target
-   * @param type
-   * @param <T>
+   * @param method method
+   * @param target target object
+   * @param type annotation
+   * @param <T> annotation type
    *
-   * @return
+   * @return found annotation or null
    */
   public static <T extends Annotation> T find(FrameworkMethod method,
     Object target, Class<T> type)

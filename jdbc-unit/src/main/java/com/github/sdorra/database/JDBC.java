@@ -29,6 +29,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * The jdbc annotation can be used to load sql scripts for specific tests. The 
+ * annotation can be used on the class level, to load the sql script for every 
+ * test of this class or on the method level to load the script for a specfic 
+ * test.
  *
  * @author Sebastian Sdorra 
  */

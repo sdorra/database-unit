@@ -31,6 +31,7 @@ package com.github.sdorra.database;
 import java.sql.Connection;
 
 /**
+ * The database interface helps to interact with the started in-memory database.
  *
  * @author Sebastian Sdorra 
  */
@@ -38,31 +39,33 @@ public interface Database
 {
 
   /**
-   * Method description
+   * Create a new jdbc connection.
    *
    *
-   * @return
+   * @return new connection
    */
   public Connection createConnection();
 
   /**
-   * Method description
+   * Loads and executes an sql script from the classpath.
    *
    *
-   * @param contextClass
-   * @param resource
-   * @param encoding
+   * @param contextClass context object is used to obtain the class loader
+   * @param resource path to the sql script
+   * @param encoding encoding of the script
    */
-  public void load(Object contextClass, String resource, String encoding);
+  public void execute(Object contextClass, String resource, String encoding);
 
   /**
-   * Method description
+   * Shutdown the in-memory database. This method is automatically invoked, 
+   * after the execution of the unit test.
    *
    */
   public void shutdown();
 
   /**
-   * Method description
+   * Starts the in-memory database. This method is automatically invoked, 
+   * before the execution of the unit test.
    *
    */
   public void start();
@@ -70,26 +73,26 @@ public interface Database
   //~--- get methods ----------------------------------------------------------
 
   /**
-   * Method description
+   * Returns the jdbc driver class for the in-memory database connection.
    *
    *
-   * @return
+   * @return jdbc driver class
    */
   public String getDriver();
 
   /**
-   * Method description
+   * Returns the jdbc url for the in-memory database connection.
    *
    *
-   * @return
+   * @return jdbc ulr
    */
   public String getUrl();
 
   /**
-   * Method description
+   * Returns {@code true} if the the database is running.
    *
    *
-   * @return
+   * @return {@code true} if the the database is running
    */
   public boolean isRunning();
 }

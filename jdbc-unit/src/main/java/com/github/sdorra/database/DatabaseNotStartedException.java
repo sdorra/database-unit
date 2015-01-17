@@ -26,20 +26,25 @@
 
 package com.github.sdorra.database;
 
-import com.github.sdorra.database.DatabaseException;
-
 /**
+ * Exception is thrown if a method tries to access a database connection and the
+ * database is not started.
  *
- * @author Sebastian Sdorra 
+ * @author Sebastian Sdorra
  */
 public class DatabaseNotStartedException extends DatabaseException
 {
 
+  /** serial version uid */
+  private static final long serialVersionUID = 1069213752055041245L;
+
+  //~--- constructors ---------------------------------------------------------
+
   /**
-   * Constructs ...
+   * Constructs a new DatabaseNotStartedException.
    *
    *
-   * @param message
+   * @param message message
    */
   public DatabaseNotStartedException(String message)
   {

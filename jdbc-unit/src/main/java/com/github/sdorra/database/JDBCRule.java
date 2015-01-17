@@ -50,14 +50,7 @@ public class JDBCRule implements MethodRule
 {
 
   /**
-   * Method description
-   *
-   *
-   * @param base
-   * @param method
-   * @param target
-   *
-   * @return
+   * {@inheritDoc}
    */
   @Override
   public Statement apply(final Statement base, final FrameworkMethod method,
@@ -77,7 +70,7 @@ public class JDBCRule implements MethodRule
 
         if (sql != null)
         {
-          database.load(target, sql, jdbc.encoding());
+          database.execute(target, sql, jdbc.encoding());
         }
 
         try
@@ -127,10 +120,10 @@ public class JDBCRule implements MethodRule
   }
 
   /**
-   * Method description
+   * Returns the in-memory database.
    *
    *
-   * @return
+   * @return in-memory database.
    */
   public Database getDatabase()
   {
@@ -166,9 +159,9 @@ public class JDBCRule implements MethodRule
 
   //~--- fields ---------------------------------------------------------------
 
-  /** Field description */
+  /** database */
   private final Database database = new DerbyDatabase("jdbc-unit");
 
-  /** Field description */
+  /** jdbc database connection */
   private Connection connection;
 }

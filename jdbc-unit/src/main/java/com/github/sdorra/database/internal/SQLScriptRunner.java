@@ -57,7 +57,8 @@ public class SQLScriptRunner
   //~--- constructors ---------------------------------------------------------
 
   /**
-   * Default constructor
+   * Default constructor.
+   * 
    * @param connection jdbc connection
    * @param autoCommit auto commit
    */

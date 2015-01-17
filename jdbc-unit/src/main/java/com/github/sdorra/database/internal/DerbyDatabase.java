@@ -43,34 +43,36 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
+ * This implementation of {@link Database} uses apache derby as in-memory 
+ * database.
  *
  * @author Sebastian Sdorra 
  */
 public class DerbyDatabase implements Database
 {
 
-  /** Field description */
+  /** jdbc driver */
   private static final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
 
-  /** Field description */
+  /** jdbc connection template */
   private static final String JDBC_URL = "jdbc:derby:memory:%s";
 
-  /** Field description */
+  /** jdbc start connection template */
   private static final String JDBC_START_URL = JDBC_URL.concat(";create=true");
 
-  /** Field description */
+  /** jdbc shutdown connection template */
   private static final String JDBC_SHUTDOWN_URL = JDBC_URL.concat(";drop=true");
 
-  /** Field description */
+  /** shutdown success error code */
   private static final int STOP_SUCCESS = 45000;
 
   //~--- constructors ---------------------------------------------------------
 
   /**
-   * Constructs ...
+   * Constructs a new derby database.
    *
    *
-   * @param databaseName
+   * @param databaseName name of the database
    */
   public DerbyDatabase(String databaseName)
   {
@@ -80,10 +82,7 @@ public class DerbyDatabase implements Database
   //~--- methods --------------------------------------------------------------
 
   /**
-   * Method description
-   *
-   *
-   * @return
+   * {@inheritDoc}
    */
   @Override
   public Connection createConnection()
@@ -99,15 +98,10 @@ public class DerbyDatabase implements Database
   }
 
   /**
-   * Method description
-   *
-   *
-   * @param contextClass
-   * @param resource
-   * @param encoding
+   * {@inheritDoc}
    */
   @Override
-  public void load(Object contextClass, String resource, String encoding)
+  public void execute(Object contextClass, String resource, String encoding)
   {
     InputStream stream = contextClass.getClass().getResourceAsStream(resource);
 
@@ -138,8 +132,7 @@ public class DerbyDatabase implements Database
   }
 
   /**
-   * Method description
-   *
+   * {@inheritDoc}
    */
   @Override
   public void shutdown()
@@ -161,8 +154,7 @@ public class DerbyDatabase implements Database
   }
 
   /**
-   * Method description
-   *
+   * {@inheritDoc}
    */
   @Override
   public void start()
@@ -190,10 +182,7 @@ public class DerbyDatabase implements Database
   //~--- get methods ----------------------------------------------------------
 
   /**
-   * Method description
-   *
-   *
-   * @return
+   * {@inheritDoc}
    */
   @Override
   public String getDriver()
@@ -202,10 +191,7 @@ public class DerbyDatabase implements Database
   }
 
   /**
-   * Method description
-   *
-   *
-   * @return
+   * {@inheritDoc}
    */
   @Override
   public String getUrl()
@@ -214,10 +200,7 @@ public class DerbyDatabase implements Database
   }
 
   /**
-   * Method description
-   *
-   *
-   * @return
+   * {@inheritDoc}
    */
   @Override
   public boolean isRunning()
@@ -228,12 +211,12 @@ public class DerbyDatabase implements Database
   //~--- methods --------------------------------------------------------------
 
   /**
-   * Method description
+   * Build a url of the given template and the database name.
    *
    *
-   * @param template
+   * @param template url template
    *
-   * @return
+   * @return url
    */
   private String url(String template)
   {
@@ -242,9 +225,9 @@ public class DerbyDatabase implements Database
 
   //~--- fields ---------------------------------------------------------------
 
-  /** Field description */
+  /** name of the database */
   private final String databaseName;
 
-  /** Field description */
+  /** is the database running? */
   private boolean running = false;
 }

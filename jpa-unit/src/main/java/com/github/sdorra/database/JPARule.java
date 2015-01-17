@@ -85,14 +85,7 @@ public class JPARule implements MethodRule
   //~--- methods --------------------------------------------------------------
 
   /**
-   * Method description
-   *
-   *
-   * @param base
-   * @param method
-   * @param target
-   *
-   * @return
+   * {@inheritDoc}
    */
   @Override
   public Statement apply(final Statement base, final FrameworkMethod method,
@@ -110,13 +103,13 @@ public class JPARule implements MethodRule
         {
           database.start();
 
-          jpaUnit = jpa.value();
+          persistenceUnit = jpa.value();
 
           String sql = jpa.sql();
 
           if (sql.trim().length() > 0)
           {
-            database.load(target, sql, jpa.encoding());
+            database.execute(target, sql, jpa.encoding());
           }
 
           EntityTransaction transaction = null;
@@ -150,10 +143,10 @@ public class JPARule implements MethodRule
   }
 
   /**
-   * Method description
+   * Returns a new {@link EntityManager} for the specified persistence unit. 
+   * Note this {@link EntityManager} must be closed manually.
    *
-   *
-   * @return
+   * @return new {@link EntityManager}
    */
   public EntityManager createEntityManager()
   {
@@ -165,10 +158,10 @@ public class JPARule implements MethodRule
   //~--- get methods ----------------------------------------------------------
 
   /**
-   * Method description
+   * Returns the in-memory database.
    *
    *
-   * @return
+   * @return in-memory database
    */
   public Database getDatabase()
   {
@@ -176,10 +169,10 @@ public class JPARule implements MethodRule
   }
 
   /**
-   * Method description
+   * Returns an in-memory {@link EntityManager} which is automatically closed 
+   * after the execution of the test method.
    *
-   *
-   * @return
+   * @return {@link EntityManager}
    */
   public EntityManager getEntityManager()
   {
@@ -192,10 +185,10 @@ public class JPARule implements MethodRule
   }
 
   /**
-   * Method description
+   * Returns the {@link EntityManagerFactory} which is created for the specified 
+   * persistence unit.
    *
-   *
-   * @return
+   * @return {@link EntityManagerFactory} for persistence unit
    */
   public EntityManagerFactory getEntityManagerFactory()
   {
@@ -215,7 +208,7 @@ public class JPARule implements MethodRule
       props.put(PROPERTY_HIBERNATE_DIALECT, VALUE_HIBERNATE_DIALECT);
 
       // create entity manager factory
-      entityManagerFactory = Persistence.createEntityManagerFactory(jpaUnit,
+      entityManagerFactory = Persistence.createEntityManagerFactory(persistenceUnit,
         props);
     }
 
@@ -223,20 +216,21 @@ public class JPARule implements MethodRule
   }
 
   /**
-   * Method description
+   * Returns the persistence unit which was specified with the {@link JPA} 
+   * annotation.
    *
    *
-   * @return
+   * @return persistence unit
    */
-  public String getJpaUnit()
+  public String getPersistenceUnit()
   {
-    return jpaUnit;
+    return persistenceUnit;
   }
 
   //~--- methods --------------------------------------------------------------
 
   /**
-   * Method description
+   * Checks if the database is running.
    *
    */
   private void checkIsRunning()
@@ -252,10 +246,10 @@ public class JPARule implements MethodRule
   }
 
   /**
-   * Method description
+   * Close opened resources.
    *
    *
-   * @param transaction
+   * @param transaction entity transaction or null
    */
   private void close(EntityTransaction transaction)
   {
@@ -279,15 +273,15 @@ public class JPARule implements MethodRule
 
   //~--- fields ---------------------------------------------------------------
 
-  /** Field description */
+  /** database */
   private final Database database = new DerbyDatabase("jpa-unit");
 
-  /** Field description */
+  /** entity manager */
   private EntityManager entityManager;
 
-  /** Field description */
+  /** entity manager */
   private EntityManagerFactory entityManagerFactory;
 
-  /** Field description */
-  private String jpaUnit;
+  /** persistence unit */
+  private String persistenceUnit;
 }

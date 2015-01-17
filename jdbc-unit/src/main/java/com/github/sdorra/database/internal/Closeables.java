@@ -40,6 +40,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 /**
+ * Util class to handle closeable objects.
  *
  * @author Sebastian Sdorra 
  */
@@ -61,10 +62,10 @@ public final class Closeables
   //~--- methods --------------------------------------------------------------
 
   /**
-   * Method description
+   * Closes the given closeable.
    *
    *
-   * @param closeable
+   * @param closeable closeable
    */
   public static void close(Closeable closeable)
   {
@@ -82,12 +83,12 @@ public final class Closeables
   }
 
   /**
-   * Method description
+   * Closes the given connection.
    *
    *
-   * @param connection
+   * @param connection connection
    */
-  static void close(Connection connection)
+  public static void close(Connection connection)
   {
     if (connection != null)
     {

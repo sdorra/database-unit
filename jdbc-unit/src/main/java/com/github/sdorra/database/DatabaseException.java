@@ -21,32 +21,61 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
+
+
 package com.github.sdorra.database;
 
 /**
+ * Generic database exception.
  *
- * @author Sebastian Sdorra 
+ * @author Sebastian Sdorra
  */
 public class DatabaseException extends RuntimeException
 {
 
-  public DatabaseException()
-  {
-  }
+  /** serial version uid */
+  private static final long serialVersionUID = 1785280300658364536L;
 
+  //~--- constructors ---------------------------------------------------------
+
+  /**
+   * Constructs a new DatabaseException.
+   *
+   */
+  public DatabaseException() {}
+
+  /**
+   * Constructs a new DatabaseException.
+   *
+   *
+   * @param message message
+   */
   public DatabaseException(String message)
   {
     super(message);
   }
 
-  public DatabaseException(String message, Throwable cause)
-  {
-    super(message, cause);
-  }
-
+  /**
+   * Constructs a new DatabaseException.
+   *
+   *
+   * @param cause cause
+   */
   public DatabaseException(Throwable cause)
   {
     super(cause);
   }
-  
+
+  /**
+   * Constructs a new DatabaseException.
+   *
+   *
+   * @param message message
+   * @param cause cause
+   */
+  public DatabaseException(String message, Throwable cause)
+  {
+    super(message, cause);
+  }
 }
