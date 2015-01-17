@@ -7,6 +7,7 @@
   <artifactId>database-unit</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
+  <name>database-unit</name>
   <description>JUnit rule to simplify database unit tests.</description>
   <url>http://sdorra.github.io/database-unit</url>
 
@@ -174,7 +175,7 @@
         <configuration>
           <autoVersionSubmodules>true</autoVersionSubmodules>
           <useReleaseProfile>false</useReleaseProfile>
-          <releaseProfiles>release,gh-pages</releaseProfiles>
+          <releaseProfiles>gh-pages</releaseProfiles>
           <goals>deploy site-deploy</goals>
           <tagNameFormat>@{project.version}</tagNameFormat>
         </configuration>
