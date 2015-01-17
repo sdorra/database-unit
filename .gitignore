@@ -19,3 +19,5 @@ Desktop DF
 .project
 .classpath
 .settings
+# derby
+derby.log
