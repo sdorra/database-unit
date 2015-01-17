@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.3" timestamp="2015-01-17T16:29:32.922">
+<file name="/Users/sdorra/Projects/github/database-unit/jdbc-unit/src/main/java/com/github/sdorra/database/internal/SQLScriptRunner.java">
+<violation beginline="159" endline="162" begincolumn="9" endcolumn="9" rule="EmptyIfStmt" ruleset="Basic Rules" package="com.github.sdorra.database.internal" class="SQLScriptRunner" method="runScript" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="164" endline="167" begincolumn="9" endcolumn="9" rule="EmptyIfStmt" ruleset="Basic Rules" package="com.github.sdorra.database.internal" class="SQLScriptRunner" method="runScript" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="224" endline="228" begincolumn="11" endcolumn="11" rule="EmptyCatchBlock" ruleset="Basic Rules" package="com.github.sdorra.database.internal" class="SQLScriptRunner" method="runScript" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
+Avoid empty catch blocks
+</violation>
+</file>
+</pmd>
