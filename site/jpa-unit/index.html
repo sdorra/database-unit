@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="Date-Revision-yyyymmdd" content="20150117" />
     <meta http-equiv="Content-Language" content="en" />
-    <title>jpa-unit - About</title>
+    <title>jpa-unit - </title>
     <link rel="stylesheet" href="./css/apache-maven-fluido-1.3.1.min.css" />
     <link rel="stylesheet" href="./css/site.css" />
     <link rel="stylesheet" href="./css/print.css" media="print" />
@@ -211,9 +211,34 @@
                 
         <div id="bodyColumn"  class="span9" >
                                   
-            <div class="section">
-<h2>About jpa-unit<a name="About_jpa-unit"></a></h2><a name="About_jpa-unit"></a>
-<p>JUnit rule to simplify database unit tests.</p></div>
+            <h1>jpa-unit</h1>
+<p>JPA rule to simplify unit tests with jpa.</p>
+<div class="section">
+<h2>Sample:<a name="Sample:"></a></h2>
+
+<div class="source">
+<pre>public class JPAUnitTest {
+
+  @Test
+  @JPA(value = &quot;test-persistence-unit&quot;, sql = &quot;/path/to/file.sql&quot;)
+  public void testJPAMethod(){
+    EntityManager em = rule.getEntityManager();
+    // do something with the EntityManager
+  }
+
+  @Rule
+  public JPARule rule = new JPARule();
+}
+</pre></div>
+<div class="section">
+<h3>Maven usage<a name="Maven_usage"></a></h3>
+<p>Artifacts are deployed to <a class="externalLink" href="http://search.maven.org">Maven Central</a>. To use, drop this in your pom.xml: <tt>xml
+&lt;dependency&gt;
+  &lt;groupId&gt;com.github.sdorra&lt;/groupId&gt;
+  &lt;artifactId&gt;jpa-unit&lt;/artifactId&gt;
+  &lt;version&gt;1.0.0&lt;/version&gt;
+&lt;/dependency&gt;
+</tt></p></div></div>
                   </div>
             </div>
           </div>
