@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.3" timestamp="2015-01-17T16:44:30.309">
+<pmd version="4.3" timestamp="2015-01-17T16:54:25.435">
 <file name="/Users/sdorra/Projects/github/database-unit/jdbc-unit/src/main/java/com/github/sdorra/database/internal/SQLScriptRunner.java">
 <violation beginline="159" endline="162" begincolumn="9" endcolumn="9" rule="EmptyIfStmt" ruleset="Basic Rules" package="com.github.sdorra.database.internal" class="SQLScriptRunner" method="runScript" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
 Avoid empty if statements
