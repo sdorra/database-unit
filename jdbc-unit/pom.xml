@@ -10,5 +10,6 @@
   </parent>
     
   <artifactId>jdbc-unit</artifactId>
+  <name>jdbc-unit</name>
   <packaging>jar</packaging>
 </project>

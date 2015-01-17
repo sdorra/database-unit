@@ -112,8 +112,10 @@
           <author>true</author>
           <keywords>true</keywords>
           <links>
-            <link>http://junit.sourceforge.net/javadoc/</link>
-            <link>https://builds.apache.org/job/Derby-trunk/lastSuccessfulBuild/artifact/trunk/javadoc/publishedapi/index.html</link>
+            <link>http://download.oracle.com/javase/6/docs/api/</link>
+            <link>http://docs.oracle.com/javaee/6/api/</link>
+            <link>http://junit.org/javadoc/latest/</link>
+            <link>http://www.slf4j.org/api/</link>
           </links>
         </configuration>
         <executions>
@@ -269,11 +271,11 @@
 
     </plugins>
   </build>
-    <modules>
-        <module>jdbc-unit</module>
-        <module>jpa-unit</module>
-    </modules>
-    <distributionManagement>
+  <modules>
+    <module>jdbc-unit</module>
+    <module>jpa-unit</module>
+  </modules>
+  <distributionManagement>
     
     <repository>
       <id>ossrh</id>

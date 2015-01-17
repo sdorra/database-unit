@@ -46,39 +46,44 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 /**
+ * The JPARule starts an in-memory sql database (namely apache derby). The
+ * database is started before each test method is executed and the database is
+ * shutdown after the method execution. The JPARule starts the in-memory 
+ * database only if the method or the class is annotated with the {@link JPA} 
+ * annotation.
  *
  * @author Sebastian Sdorra 
  */
 public class JPARule implements MethodRule
 {
 
-  /** Field description */
+  /** empty string */
   private static final String EMPTY = "";
 
-  /** Field description */
+  /** jpa create properties */
   private static final String PROPERTY_CREATE =
     "javax.persistence.schema-generation.database.action";
 
-  /** Field description */
+  /** jpa direver property */
   private static final String PROPERTY_DRIVER = "javax.persistence.jdbc.driver";
 
-  /** Field description */
+  /** hibernate dialect property */
   private static final String PROPERTY_HIBERNATE_DIALECT = "hibernate.dialect";
 
-  /** Field description */
+  /** jpa password property */
   private static final String PROPERTY_PASSWORD =
     "javax.persistence.jdbc.password";
 
-  /** Field description */
+  /** jpa url property */
   private static final String PROPERTY_URL = "javax.persistence.jdbc.url";
 
-  /** Field description */
+  /** jpa user property */
   private static final String PROPERTY_USER = "javax.persistence.jdbc.user";
 
-  /** Field description */
+  /** value for the jpa create property */
   private static final String VALUE_CREATE = "create";
 
-  /** Field description */
+  /** value for the hibernate dialect property */
   private static final String VALUE_HIBERNATE_DIALECT =
     "org.hibernate.dialect.DerbyTenSevenDialect";
 

@@ -108,11 +108,11 @@ public class SQLScriptRunner
   //~--- set methods ----------------------------------------------------------
 
   /**
-   * Method description
+   * Sets the delimiter for the execution.
    *
    *
-   * @param delimiter
-   * @param fullLineDelimiter
+   * @param delimiter command delimiter
+   * @param fullLineDelimiter is the delimiter a full line delimiter
    */
   public void setDelimiter(String delimiter, boolean fullLineDelimiter)
   {
